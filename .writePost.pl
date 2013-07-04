@@ -21,3 +21,4 @@ my $fileName = $dom."-".$mon."-".$year."-".$hour.":".$minute.":".$second.".md";
 
 # THIS CALLS VIM TO CREATE A NEW FILE WITH THE DATE
 exec("vim .raw/".$fileName);
+exit 0;

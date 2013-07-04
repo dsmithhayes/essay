@@ -15,6 +15,8 @@
  *   Dave Smith-Hayes
  *
  */
+
+include("functions.php");
 ?>
 <!DOCTYPE html>
 <head>
@@ -34,10 +36,10 @@
 
 	.post{
 		width: 600px;
-		padding: 25px 50px 25px 50px;
+		padding: 15px 25px 15px 25px;
 		margin: 0 auto 25px auto;
 		border: 1px solid #ccc;
-		background-color: #faf2f6;
+		background-color: #eee;
 	}
 	.post h1{
 		margin: 0 0 15px 0;
@@ -50,24 +52,8 @@
 </head>
 <body>
 <?php
-//Get the log file, this is used to 
-$log = @fopen("posts.log", "r")
-	or die("Error opening 'posts.log'");
 
-//create the array called 'file'
-if($log){
-	$file = explode("\n", fread($log, filesize("posts.log")));
-}
-
-//reder the blog posts
-
-for($j = count($file; $j >= 0; $j--){
-	if(!$file[$i] == "." || !$file[$i] == ".."){
-		echo '<div class="post">';
-		include(".html/".$file[$j]);
-		echo '</div>';
-	}
-}
+getPosts();
 
 ?>
 <div style="margin-top:50px" align="center">
